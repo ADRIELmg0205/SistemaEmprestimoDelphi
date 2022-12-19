@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/12/14 20:06:33.000.478,=C:\Users\adrie\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/12/14 20:06:57.000.275,C:\Users\adrie\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\adrie\OneDrive\Documentos\Embarcadero\Studio\Projects\uPrincipal.pas</Transaction>
+    <Transaction>2022/12/14 20:06:57.000.275,C:\Users\adrie\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\adrie\OneDrive\Documentos\Embarcadero\Studio\Projects\uPrincipal.dfm</Transaction>
+    <Transaction>2022/12/14 20:07:04.000.036,C:\Users\adrie\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\adrie\OneDrive\Documentos\Embarcadero\Studio\Projects\SistemaEmprestimo.dproj</Transaction>
+    <Transaction>2022/12/14 20:42:39.000.644,=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/12/14 20:45:03.000.011,C:\SistemaEmprestimo\Fontes\uDMConexao.pas=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/12/14 20:45:03.000.011,C:\SistemaEmprestimo\Fontes\uDMConexao.dfm=C:\SistemaEmprestimo\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2022/12/14 22:51:24.000.044,=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/12/14 22:53:07.000.704,C:\SistemaEmprestimo\Fontes\uEM001.dfm=C:\SistemaEmprestimo\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2022/12/14 22:53:07.000.704,C:\SistemaEmprestimo\Fontes\uEM001.pas=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/12/15 23:51:43.000.565,=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/12/15 23:53:12.000.861,C:\SistemaEmprestimo\Fontes\Unit1.dfm=C:\SistemaEmprestimo\Fontes\uEM002.dfm</Transaction>
+    <Transaction>2022/12/15 23:53:12.000.861,C:\SistemaEmprestimo\Fontes\Unit1.pas=C:\SistemaEmprestimo\Fontes\uEM002.pas</Transaction>
+    <Transaction>2022/12/16 15:02:29.000.894,=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/12/16 15:05:27.000.426,C:\SistemaEmprestimo\Fontes\uEM003.dfm=C:\SistemaEmprestimo\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2022/12/16 15:05:27.000.426,C:\SistemaEmprestimo\Fontes\uEM003.pas=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/12/17 10:29:49.000.066,=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/12/17 10:32:47.000.195,C:\SistemaEmprestimo\Fontes\Unit1.dfm=C:\SistemaEmprestimo\Fontes\uEM003p.dfm</Transaction>
+    <Transaction>2022/12/17 10:32:47.000.195,C:\SistemaEmprestimo\Fontes\Unit1.pas=C:\SistemaEmprestimo\Fontes\uEM003p.pas</Transaction>
+    <Transaction>2022/12/17 17:49:57.000.496,=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/12/17 17:51:08.000.894,C:\SistemaEmprestimo\Fontes\Unit1.dfm=C:\SistemaEmprestimo\Fontes\uEM005.dfm</Transaction>
+    <Transaction>2022/12/17 17:51:08.000.894,C:\SistemaEmprestimo\Fontes\Unit1.pas=C:\SistemaEmprestimo\Fontes\uEM005.pas</Transaction>
+    <Transaction>2022/12/18 19:28:32.000.525,=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/12/18 19:29:38.000.345,C:\SistemaEmprestimo\Fontes\uEM006.dfm=C:\SistemaEmprestimo\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2022/12/18 19:29:38.000.345,C:\SistemaEmprestimo\Fontes\uEM006.pas=C:\SistemaEmprestimo\Fontes\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

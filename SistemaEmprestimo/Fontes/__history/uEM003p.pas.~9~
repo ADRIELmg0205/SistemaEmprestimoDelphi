@@ -1,0 +1,85 @@
+unit uEM003p;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Data.DB,
+  Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Datasnap.DBClient,
+  Datasnap.Provider, FireDAC.Comp.DataSet, FireDAC.Comp.Client, SimpleDS;
+
+type
+  TovF_EM003p = class(TForm)
+    Panel1: TPanel;
+    ovCB_CampoFiltro: TComboBox;
+    ovE_Filtro: TEdit;
+    ovB_Pesquisa: TButton;
+    Label1: TLabel;
+    DBGrid1: TDBGrid;
+    oSD_Pesquisa: TSimpleDataSet;
+    oDS_Pesquisa: TDataSource;
+    oQ_Usuario: TFDQuery;
+    oQ_UsuarioIDUSU: TIntegerField;
+    oQ_UsuarioCODUSU: TIntegerField;
+    oQ_UsuarioNOMUSU: TStringField;
+    oQ_UsuarioTELUSU: TStringField;
+    oQ_UsuarioENDUSU: TStringField;
+    oQ_UsuarioCIDUSU: TStringField;
+    oQ_UsuarioUFUSU: TStringField;
+    oQ_UsuarioOBSUSU: TMemoField;
+    oDSP_Usuario: TDataSetProvider;
+    oCDS_Usuario: TClientDataSet;
+    oCDS_UsuarioIDUSU: TIntegerField;
+    oCDS_UsuarioCODUSU: TIntegerField;
+    oCDS_UsuarioNOMUSU: TStringField;
+    oCDS_UsuarioTELUSU: TStringField;
+    oCDS_UsuarioENDUSU: TStringField;
+    oCDS_UsuarioCIDUSU: TStringField;
+    oCDS_UsuarioUFUSU: TStringField;
+    oCDS_UsuarioOBSUSU: TMemoField;
+    oDS_Usuario: TDataSource;
+    procedure ovB_PesquisaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ovF_EM003p: TovF_EM003p;
+
+implementation
+
+  uses uDMConexao;
+
+{$R *.dfm}
+
+procedure TovF_EM003p.ovB_PesquisaClick(Sender: TObject);
+var
+  SQLBase : string;
+begin
+  SQLBase := 'SELECT codusu, nomusu, cidusu, telusu FROM USUARIOS';
+  case ovCB_CampoFiltro.ItemIndex of
+  0: // codigo
+  begin
+    SQLBase:= SQLBase + 'Where codusu like "%'+ovE_Filtro.text+'%"';
+  end;
+  1: // nome
+  begin
+    SQLBase:= SQLBase + 'Where nomusu like "%'+ovE_Filtro.text+'%"';
+  end;
+  2: // cidade
+  begin
+    SQLBase:= SQLBase + 'Where cidusu like "%'+ovE_Filtro.text+'%"';
+  end;
+  3: // telefone
+  begin
+    SQLBase:= SQLBase + 'Where telusu like "%'+ovE_Filtro.text+'%"';
+  end;
+  end;
+
+end;
+
+end.

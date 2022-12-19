@@ -1,0 +1,44 @@
+unit uEM006;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+  Datasnap.DBClient, Datasnap.Provider, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
+
+type
+  TovF_EM006 = class(TForm)
+    oQ_Emprestimo: TFDQuery;
+    oQ_EmprestimoIDEMP: TIntegerField;
+    oQ_EmprestimoIDITE: TIntegerField;
+    oQ_EmprestimoDATEMP: TDateField;
+    oQ_EmprestimoIDUSU: TIntegerField;
+    oQ_EmprestimoOBSEMP: TMemoField;
+    oQ_EmprestimoDEVEMP: TDateField;
+    oDSP_Emprestimo: TDataSetProvider;
+    oCDS_Emprestimo: TClientDataSet;
+    oCDS_EmprestimoIDEMP: TIntegerField;
+    oCDS_EmprestimoIDITE: TIntegerField;
+    oCDS_EmprestimoDATEMP: TDateField;
+    oCDS_EmprestimoIDUSU: TIntegerField;
+    oCDS_EmprestimoOBSEMP: TMemoField;
+    oCDS_EmprestimoDEVEMP: TDateField;
+    oDS_Emprestimo: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ovF_EM006: TovF_EM006;
+
+implementation
+
+{$R *.dfm}
+
+end.

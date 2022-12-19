@@ -1,0 +1,17 @@
+object uDM_Conexao: TuDM_Conexao
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+  object oSQLConnection: TFDConnection
+    ConnectionName = 'Emprestimo'
+    Params.Strings = (
+      'Password=masterkey'
+      'User_Name=SYSDBA'
+      'Database=C:\SistemaEmprestimo\Banco de Dados\EMPRESTIMO.FDB'
+      'DriverID=FB')
+    Connected = True
+    LoginPrompt = False
+    Left = 56
+    Top = 64
+  end
+end

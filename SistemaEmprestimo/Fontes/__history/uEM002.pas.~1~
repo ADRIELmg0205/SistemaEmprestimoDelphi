@@ -1,0 +1,24 @@
+unit uEM002;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TovF_EM002 = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ovF_EM002: TovF_EM002;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,113 @@
+object ovF_EM006: TovF_EM006
+  Left = 0
+  Top = 0
+  Caption = 'Devolu'#231#227'o de empr'#233'stimos'
+  ClientHeight = 348
+  ClientWidth = 710
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object oQ_Emprestimo: TFDQuery
+    Connection = uDM_Conexao.oSQLConnection
+    SQL.Strings = (
+      
+        'SELECT idemp, idite, datemp, idusu, obsemp, devemp FROM empresti' +
+        'mo'
+      'where idemp =:idemp and devemp is null;')
+    Left = 642
+    Top = 80
+    ParamData = <
+      item
+        Position = 1
+        Name = 'IDEMP'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+    object oQ_EmprestimoIDEMP: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'IDEMP'
+      Origin = 'IDEMP'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object oQ_EmprestimoIDITE: TIntegerField
+      FieldName = 'IDITE'
+      Origin = 'IDITE'
+    end
+    object oQ_EmprestimoDATEMP: TDateField
+      FieldName = 'DATEMP'
+      Origin = 'DATEMP'
+    end
+    object oQ_EmprestimoIDUSU: TIntegerField
+      FieldName = 'IDUSU'
+      Origin = 'IDUSU'
+    end
+    object oQ_EmprestimoOBSEMP: TMemoField
+      FieldName = 'OBSEMP'
+      Origin = 'OBSEMP'
+      BlobType = ftMemo
+    end
+    object oQ_EmprestimoDEVEMP: TDateField
+      FieldName = 'DEVEMP'
+      Origin = 'DEVEMP'
+    end
+  end
+  object oDSP_Emprestimo: TDataSetProvider
+    DataSet = oQ_Emprestimo
+    UpdateMode = upWhereKeyOnly
+    Left = 642
+    Top = 128
+  end
+  object oCDS_Emprestimo: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'IDEMP'
+        ParamType = ptInput
+      end>
+    ProviderName = 'oDSP_Emprestimo'
+    Left = 642
+    Top = 184
+    object oCDS_EmprestimoIDEMP: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'IDEMP'
+      Origin = 'IDEMP'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object oCDS_EmprestimoIDITE: TIntegerField
+      FieldName = 'IDITE'
+      Origin = 'IDITE'
+    end
+    object oCDS_EmprestimoDATEMP: TDateField
+      FieldName = 'DATEMP'
+      Origin = 'DATEMP'
+    end
+    object oCDS_EmprestimoIDUSU: TIntegerField
+      FieldName = 'IDUSU'
+      Origin = 'IDUSU'
+    end
+    object oCDS_EmprestimoOBSEMP: TMemoField
+      FieldName = 'OBSEMP'
+      Origin = 'OBSEMP'
+      BlobType = ftMemo
+    end
+    object oCDS_EmprestimoDEVEMP: TDateField
+      FieldName = 'DEVEMP'
+      Origin = 'DEVEMP'
+    end
+  end
+  object oDS_Emprestimo: TDataSource
+    DataSet = oCDS_Emprestimo
+    Left = 642
+    Top = 240
+  end
+end

@@ -1,0 +1,119 @@
+unit uEM005;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.DBCtrls, Vcl.Mask, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, Data.DB, Datasnap.DBClient, Datasnap.Provider, SimpleDS,
+  Data.DBXInterBase;
+
+type
+  TovF_EM005 = class(TForm)
+    ovP_Botoes: TPanel;
+    ovSB_Pesquisa: TSpeedButton;
+    ovB_Gravar: TButton;
+    ovB_Sair: TButton;
+    ovB_Cancelar: TButton;
+    ovB_Excluir: TButton;
+    ovP_Chave: TPanel;
+    Label1: TLabel;
+    ovE_idemp: TEdit;
+    ovB_NovoID: TButton;
+    Panel1: TPanel;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label2: TLabel;
+    Label9: TLabel;
+    ovDBE_nomusu: TDBEdit;
+    ovDBE_cidusu: TDBEdit;
+    ovDBE_obsusu: TDBEdit;
+    ovDBLC_idusu: TDBLookupComboBox;
+    ovDBLC_idite: TDBLookupComboBox;
+    oDSP_Emprestimo: TDataSetProvider;
+    oCDS_Emprestimo: TClientDataSet;
+    oCDS_EmprestimoIDUSU: TIntegerField;
+    oCDS_EmprestimoCODUSU: TIntegerField;
+    oCDS_EmprestimoNOMUSU: TStringField;
+    oCDS_EmprestimoTELUSU: TStringField;
+    oCDS_EmprestimoENDUSU: TStringField;
+    oCDS_EmprestimoCIDUSU: TStringField;
+    oCDS_EmprestimoUFUSU: TStringField;
+    oDS_Emprestimo: TDataSource;
+    oQ_Emprestimo: TFDQuery;
+    oSD_Itememprestimo: TSimpleDataSet;
+    oDS_ItemEMprestimo: TDataSource;
+    oSD_Usuario: TSimpleDataSet;
+    oDS_Usuario: TDataSource;
+    procedure ovB_GravarClick(Sender: TObject);
+    procedure ovB_ExcluirClick(Sender: TObject);
+    procedure ovB_CancelarClick(Sender: TObject);
+    procedure ovB_SairClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ovF_EM005: TovF_EM005;
+
+implementation
+     uses uDMConexao;
+{$R *.dfm}
+
+procedure TovF_EM005.ovB_CancelarClick(Sender: TObject);
+begin
+  oCDS_Emprestimo.Close;
+  ovE_idemp.setfocus;
+end;
+
+procedure TovF_EM005.ovB_ExcluirClick(Sender: TObject);
+begin
+  oCDS_Emprestimo.Delete;
+    if oCDS_Emprestimo.ChangeCount > 0 then
+    begin
+      if oCDS_Emprestimo.ApplyUpdates(0) <> 0 then
+      begin
+        showmessage('Não foi possível remover o registro!');
+      end
+      else
+      begin
+         showmessage('Registro removido com sucesso!');
+         oCDS_Emprestimo.Close;
+         ovE_idemp.setfocus;
+      end;
+
+    end;
+end;
+
+procedure TovF_EM005.ovB_GravarClick(Sender: TObject);
+begin
+ oCDS_Emprestimo.CheckBrowseMode;
+
+  if oCDS_Emprestimo.ChangeCount> 0 then
+    begin
+      if oCDS_Emprestimo.ApplyUpdates(0) <> 0 then
+        begin
+          showmessage('Dados não salvo corretamente!');
+        end
+    else
+    begin
+      showmessage('Dados salvos com sucesso!');
+      oCDS_Emprestimo.Close;
+      ovE_idemp.SetFocus;
+    end;
+end;
+end;
+
+procedure TovF_EM005.ovB_SairClick(Sender: TObject);
+begin
+  ovF_EM005.CLose;
+end;
+
+end.

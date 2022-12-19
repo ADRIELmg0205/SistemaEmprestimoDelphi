@@ -1,0 +1,379 @@
+object ovF_EM003: TovF_EM003
+  Left = 0
+  Top = 0
+  Align = alTop
+  Caption = 'Cadastro de usu'#225'rios para empr'#233'stimo'
+  ClientHeight = 383
+  ClientWidth = 661
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object ovP_Botoes: TPanel
+    Left = 0
+    Top = 0
+    Width = 661
+    Height = 57
+    Align = alTop
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitWidth = 769
+    object ovSB_Pesquisa: TSpeedButton
+      Left = 488
+      Top = 17
+      Width = 73
+      Height = 25
+      Caption = 'Pesquisa'
+      OnClick = ovSB_PesquisaClick
+    end
+    object ovB_Gravar: TButton
+      Left = 24
+      Top = 17
+      Width = 75
+      Height = 25
+      Caption = 'Gravar'
+      TabOrder = 0
+      OnClick = ovB_GravarClick
+    end
+    object ovB_Sair: TButton
+      Left = 360
+      Top = 17
+      Width = 75
+      Height = 25
+      Caption = 'Sair'
+      TabOrder = 1
+      OnClick = ovB_SairClick
+    end
+    object ovB_Cancelar: TButton
+      Left = 250
+      Top = 17
+      Width = 75
+      Height = 25
+      Caption = 'Cancelar'
+      TabOrder = 2
+      OnClick = ovB_CancelarClick
+    end
+    object ovB_Excluir: TButton
+      Left = 137
+      Top = 17
+      Width = 75
+      Height = 25
+      Caption = 'Excluir'
+      TabOrder = 3
+      OnClick = ovB_ExcluirClick
+    end
+  end
+  object ovP_Chave: TPanel
+    Left = 0
+    Top = 57
+    Width = 661
+    Height = 50
+    Align = alTop
+    TabOrder = 1
+    OnExit = ovP_ChaveExit
+    ExplicitWidth = 769
+    object Label1: TLabel
+      Left = 116
+      Top = 31
+      Width = 15
+      Height = 13
+      Caption = 'ID:'
+    end
+    object ovE_idusu: TEdit
+      Left = 137
+      Top = 24
+      Width = 64
+      Height = 21
+      NumbersOnly = True
+      TabOrder = 0
+    end
+    object ovB_NovoID: TButton
+      Left = 207
+      Top = 24
+      Width = 59
+      Height = 20
+      Caption = 'Gerar ID'
+      TabOrder = 1
+      OnClick = ovB_NovoIDClick
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 107
+    Width = 661
+    Height = 276
+    Align = alClient
+    TabOrder = 2
+    ExplicitLeft = -8
+    object Label3: TLabel
+      Left = 98
+      Top = 17
+      Width = 33
+      Height = 13
+      Caption = 'NOME:'
+    end
+    object Label4: TLabel
+      Left = 73
+      Top = 117
+      Width = 58
+      Height = 13
+      Caption = 'ENDERE'#199'O:'
+    end
+    object Label5: TLabel
+      Left = 89
+      Top = 144
+      Width = 42
+      Height = 13
+      Caption = 'CIDADE:'
+    end
+    object Label6: TLabel
+      Left = 331
+      Top = 146
+      Width = 17
+      Height = 13
+      Caption = 'UF:'
+    end
+    object Label7: TLabel
+      Left = 59
+      Top = 184
+      Width = 72
+      Height = 13
+      Caption = 'OBSERVA'#199#195'O:'
+    end
+    object Label8: TLabel
+      Left = 77
+      Top = 71
+      Width = 54
+      Height = 13
+      Caption = 'TELEFONE:'
+    end
+    object Label2: TLabel
+      Left = 59
+      Top = -13
+      Width = 15
+      Height = 13
+      Caption = 'ID:'
+    end
+    object Label9: TLabel
+      Left = 86
+      Top = 44
+      Width = 45
+      Height = 13
+      Caption = 'CODIGO:'
+    end
+    object ovDBE_nomusu: TDBEdit
+      Left = 137
+      Top = 14
+      Width = 264
+      Height = 21
+      DataField = 'NOMUSU'
+      DataSource = oDS_Usuario
+      TabOrder = 0
+    end
+    object ovDBE_telusu: TDBEdit
+      Left = 137
+      Top = 68
+      Width = 168
+      Height = 21
+      DataField = 'TELUSU'
+      DataSource = oDS_Usuario
+      TabOrder = 2
+    end
+    object ovDBE_endusu: TDBEdit
+      Left = 137
+      Top = 114
+      Width = 264
+      Height = 21
+      DataField = 'ENDUSU'
+      DataSource = oDS_Usuario
+      TabOrder = 3
+    end
+    object ovDBE_cidusu: TDBEdit
+      Left = 137
+      Top = 141
+      Width = 188
+      Height = 21
+      DataField = 'CIDUSU'
+      DataSource = oDS_Usuario
+      TabOrder = 4
+    end
+    object ovDBE_obsusu: TDBEdit
+      Left = 137
+      Top = 181
+      Width = 264
+      Height = 21
+      DataField = 'OBSUSU'
+      DataSource = oDS_Usuario
+      TabOrder = 6
+    end
+    object ovDBE_codusu: TDBEdit
+      Left = 137
+      Top = 41
+      Width = 56
+      Height = 21
+      DataField = 'IDUSU'
+      DataSource = oDS_Usuario
+      TabOrder = 1
+    end
+    object ovDBCB_ufusu: TDBComboBox
+      Left = 354
+      Top = 141
+      Width = 47
+      Height = 21
+      Style = csDropDownList
+      DataField = 'UFUSU'
+      DataSource = oDS_Usuario
+      Items.Strings = (
+        'AC'
+        'AL'
+        'AP'
+        'AM'
+        'BA'
+        'CE'
+        'DF'
+        'ES'
+        'GO'
+        'MA'
+        'MT'
+        'MS'
+        'MG'
+        'PA'
+        'PB'
+        'PR'
+        'PE'
+        'PI'
+        'RN'
+        'RS'
+        'RJ'
+        'RO'
+        'RR'
+        'SC'
+        'SP'
+        'SE'
+        'TO'
+        '')
+      TabOrder = 5
+    end
+  end
+  object oQ_Usuario: TFDQuery
+    Active = True
+    Connection = uDM_Conexao.oSQLConnection
+    SQL.Strings = (
+      
+        'SELECT idusu, codusu, nomusu, telusu, endusu, CIDUSU, ufusu, obs' +
+        'usu '
+      'FROM USUARIOS u '
+      'WHERE codusu =:codusu')
+    Left = 40
+    Top = 325
+    ParamData = <
+      item
+        Name = 'CODUSU'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+    object oQ_UsuarioIDUSU: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'IDUSU'
+      Origin = 'IDUSU'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object oQ_UsuarioCODUSU: TIntegerField
+      FieldName = 'CODUSU'
+      Origin = 'CODUSU'
+    end
+    object oQ_UsuarioNOMUSU: TStringField
+      FieldName = 'NOMUSU'
+      Origin = 'NOMUSU'
+      Size = 80
+    end
+    object oQ_UsuarioTELUSU: TStringField
+      FieldName = 'TELUSU'
+      Origin = 'TELUSU'
+    end
+    object oQ_UsuarioENDUSU: TStringField
+      FieldName = 'ENDUSU'
+      Origin = 'ENDUSU'
+      Size = 100
+    end
+    object oQ_UsuarioCIDUSU: TStringField
+      FieldName = 'CIDUSU'
+      Origin = 'CIDUSU'
+      Size = 40
+    end
+    object oQ_UsuarioUFUSU: TStringField
+      FieldName = 'UFUSU'
+      Origin = 'UFUSU'
+      FixedChar = True
+      Size = 2
+    end
+    object oQ_UsuarioOBSUSU: TMemoField
+      FieldName = 'OBSUSU'
+      Origin = 'OBSUSU'
+      BlobType = ftMemo
+    end
+  end
+  object oDSP_Usuario: TDataSetProvider
+    DataSet = oQ_Usuario
+    UpdateMode = upWhereKeyOnly
+    Left = 112
+    Top = 325
+  end
+  object oCDS_Usuario: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'CODUSU'
+        ParamType = ptInput
+      end>
+    ProviderName = 'oDSP_Usuario'
+    Left = 184
+    Top = 325
+    object oCDS_UsuarioIDUSU: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'IDUSU'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object oCDS_UsuarioCODUSU: TIntegerField
+      FieldName = 'CODUSU'
+    end
+    object oCDS_UsuarioNOMUSU: TStringField
+      FieldName = 'NOMUSU'
+      Size = 80
+    end
+    object oCDS_UsuarioTELUSU: TStringField
+      FieldName = 'TELUSU'
+    end
+    object oCDS_UsuarioENDUSU: TStringField
+      FieldName = 'ENDUSU'
+      Size = 100
+    end
+    object oCDS_UsuarioCIDUSU: TStringField
+      FieldName = 'CIDUSU'
+      Size = 40
+    end
+    object oCDS_UsuarioUFUSU: TStringField
+      FieldName = 'UFUSU'
+      FixedChar = True
+      Size = 2
+    end
+    object oCDS_UsuarioOBSUSU: TMemoField
+      FieldName = 'OBSUSU'
+      BlobType = ftMemo
+    end
+  end
+  object oDS_Usuario: TDataSource
+    DataSet = oCDS_Usuario
+    Left = 264
+    Top = 325
+  end
+end

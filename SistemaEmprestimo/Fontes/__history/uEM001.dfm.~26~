@@ -1,0 +1,174 @@
+object ovF_EM001: TovF_EM001
+  Left = 0
+  Top = 0
+  Caption = 'EM001 '#8211' Cadastro de usu'#225'rio para empr'#233'stimo'
+  ClientHeight = 371
+  ClientWidth = 607
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object ovB_Abrir: TButton
+    Left = 8
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Abrir'
+    TabOrder = 0
+    OnClick = ovB_AbrirClick
+  end
+  object ovB_Fechar: TButton
+    Left = 104
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Fechar'
+    TabOrder = 1
+    OnClick = ovB_FecharClick
+  end
+  object ovDBG_Usuarios: TDBGrid
+    Left = 8
+    Top = 48
+    Width = 591
+    Height = 120
+    DataSource = oDS_Usuario
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'CODUSU'
+        Title.Caption = 'CODIGO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NOMUSU'
+        Title.Caption = 'NOME'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TELUSU'
+        Title.Caption = 'TELEFONE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ENDUSU'
+        Title.Caption = 'ENDERE'#199'O'
+        Visible = True
+      end>
+  end
+  object oDSP_Usuario: TDataSetProvider
+    DataSet = oQ_Usuario
+    UpdateMode = upWhereKeyOnly
+    Left = 136
+    Top = 264
+  end
+  object oCDS_Usuario: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'oDSP_Usuario'
+    Left = 240
+    Top = 272
+    object oCDS_UsuarioIDUSU: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'IDUSU'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object oCDS_UsuarioCODUSU: TIntegerField
+      FieldName = 'CODUSU'
+    end
+    object oCDS_UsuarioNOMUSU: TStringField
+      FieldName = 'NOMUSU'
+      Size = 80
+    end
+    object oCDS_UsuarioTELUSU: TStringField
+      FieldName = 'TELUSU'
+    end
+    object oCDS_UsuarioENDUSU: TStringField
+      FieldName = 'ENDUSU'
+      Size = 100
+    end
+    object oCDS_UsuarioCIDUSU: TStringField
+      FieldName = 'CIDUSU'
+      Size = 40
+    end
+    object oCDS_UsuarioUFUSU: TStringField
+      FieldName = 'UFUSU'
+      FixedChar = True
+      Size = 2
+    end
+    object oCDS_UsuarioOBSUSU: TMemoField
+      FieldName = 'OBSUSU'
+      BlobType = ftMemo
+    end
+  end
+  object oDS_Usuario: TDataSource
+    DataSet = oCDS_Usuario
+    Left = 352
+    Top = 272
+  end
+  object oQ_Usuario: TFDQuery
+    Active = True
+    Connection = uDM_Conexao.oSQLConnection
+    SQL.Strings = (
+      
+        'SELECT idusu, codusu, nomusu, telusu, endusu, CIDUSU, ufusu, obs' +
+        'usu FROM USUARIOS u ;')
+    Left = 32
+    Top = 264
+    object oQ_UsuarioIDUSU: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'IDUSU'
+      Origin = 'IDUSU'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object oQ_UsuarioCODUSU: TIntegerField
+      FieldName = 'CODUSU'
+      Origin = 'CODUSU'
+    end
+    object oQ_UsuarioNOMUSU: TStringField
+      FieldName = 'NOMUSU'
+      Origin = 'NOMUSU'
+      Size = 80
+    end
+    object oQ_UsuarioTELUSU: TStringField
+      FieldName = 'TELUSU'
+      Origin = 'TELUSU'
+    end
+    object oQ_UsuarioENDUSU: TStringField
+      FieldName = 'ENDUSU'
+      Origin = 'ENDUSU'
+      Size = 100
+    end
+    object oQ_UsuarioCIDUSU: TStringField
+      FieldName = 'CIDUSU'
+      Origin = 'CIDUSU'
+      Size = 40
+    end
+    object oQ_UsuarioUFUSU: TStringField
+      FieldName = 'UFUSU'
+      Origin = 'UFUSU'
+      FixedChar = True
+      Size = 2
+    end
+    object oQ_UsuarioOBSUSU: TMemoField
+      FieldName = 'OBSUSU'
+      Origin = 'OBSUSU'
+      BlobType = ftMemo
+    end
+  end
+end

@@ -1,0 +1,17 @@
+program SistemaEmprestimo;
+
+uses
+  Vcl.Forms,
+  uPrincipal in 'uPrincipal.pas' {ovF_Principal},
+  uDMConexao in 'uDMConexao.pas' {oDM_Conexao: TDataModule},
+  uEM001 in 'uEM001.pas' {ovF_EM001};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TovF_Principal, ovF_Principal);
+  Application.CreateForm(ToDM_Conexao, oDM_Conexao);
+  Application.Run;
+end.

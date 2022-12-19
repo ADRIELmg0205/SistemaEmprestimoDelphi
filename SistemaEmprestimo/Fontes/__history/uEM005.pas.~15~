@@ -1,0 +1,203 @@
+unit uEM005;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.DBCtrls, Vcl.Mask, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, Data.DB, Datasnap.DBClient, Datasnap.Provider, SimpleDS,
+  Data.DBXInterBase, Data.FMTBcd, Data.SqlExpr;
+
+type
+  TovF_EM005 = class(TForm)
+    ovP_Botoes: TPanel;
+    ovSB_Pesquisa: TSpeedButton;
+    ovB_Gravar: TButton;
+    ovB_Sair: TButton;
+    ovB_Cancelar: TButton;
+    ovB_Excluir: TButton;
+    ovP_Chave: TPanel;
+    Label1: TLabel;
+    ovE_idemp: TEdit;
+    ovB_NovoID: TButton;
+    Panel1: TPanel;
+    Label3: TLabel;
+    Label5: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label2: TLabel;
+    Label9: TLabel;
+    ovDBE_datemp: TDBEdit;
+    ovDBLC_idusu: TDBLookupComboBox;
+    ovDBLC_idite: TDBLookupComboBox;
+    oQ_Emprestimo: TFDQuery;
+    oDSP_Emprestimo: TDataSetProvider;
+    oCDS_Emprestimo: TClientDataSet;
+    oDS_Emprestimo: TDataSource;
+    oQ_EmprestimoIDEMP: TIntegerField;
+    oQ_EmprestimoIDITE: TIntegerField;
+    oQ_EmprestimoDATEMP: TDateField;
+    oQ_EmprestimoIDUSU: TIntegerField;
+    oQ_EmprestimoOBSEMP: TMemoField;
+    oQ_EmprestimoDEVEMP: TDateField;
+    oCDS_EmprestimoIDEMP: TIntegerField;
+    oCDS_EmprestimoIDITE: TIntegerField;
+    oCDS_EmprestimoDATEMP: TDateField;
+    oCDS_EmprestimoIDUSU: TIntegerField;
+    oCDS_EmprestimoOBSEMP: TMemoField;
+    oCDS_EmprestimoDEVEMP: TDateField;
+    ovDBE_obsemp: TDBEdit;
+    ovDBE_devemp: TDBEdit;
+    oQ_Usuario: TFDQuery;
+    oQ_UsuarioIDUSU: TIntegerField;
+    oQ_UsuarioCODUSU: TIntegerField;
+    oQ_UsuarioNOMUSU: TStringField;
+    oQ_UsuarioTELUSU: TStringField;
+    oQ_UsuarioENDUSU: TStringField;
+    oQ_UsuarioCIDUSU: TStringField;
+    oQ_UsuarioUFUSU: TStringField;
+    oQ_UsuarioOBSUSU: TMemoField;
+    oDSP_Usuario: TDataSetProvider;
+    oCDS_Usuario: TClientDataSet;
+    oCDS_UsuarioIDUSU: TIntegerField;
+    oCDS_UsuarioCODUSU: TIntegerField;
+    oCDS_UsuarioNOMUSU: TStringField;
+    oCDS_UsuarioTELUSU: TStringField;
+    oCDS_UsuarioENDUSU: TStringField;
+    oCDS_UsuarioCIDUSU: TStringField;
+    oCDS_UsuarioUFUSU: TStringField;
+    oCDS_UsuarioOBSUSU: TMemoField;
+    oDS_Usuario: TDataSource;
+    ovDBE_idite: TDBEdit;
+    ovDBE_idusu: TDBEdit;
+    Label4: TLabel;
+    Label6: TLabel;
+    oDSP_ItemEmprestimo: TDataSetProvider;
+    oCDS_ItemEmprestimo: TClientDataSet;
+    oQ_ItemEmprestimo: TFDQuery;
+    oQ_ItemEmprestimoIDITE: TIntegerField;
+    oQ_ItemEmprestimoCODITE: TIntegerField;
+    oQ_ItemEmprestimoDESITE: TStringField;
+    oCDS_ItemEmprestimoIDITE: TIntegerField;
+    oCDS_ItemEmprestimoCODITE: TIntegerField;
+    oCDS_ItemEmprestimoDESITE: TStringField;
+    oDS_ItemEmprestimo: TDataSource;
+    procedure ovB_GravarClick(Sender: TObject);
+    procedure ovB_ExcluirClick(Sender: TObject);
+    procedure ovB_CancelarClick(Sender: TObject);
+    procedure ovB_SairClick(Sender: TObject);
+    procedure ovB_NovoIDClick(Sender: TObject);
+    procedure ovP_ChaveExit(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ovF_EM005: TovF_EM005;
+
+implementation
+     uses uDMConexao;
+{$R *.dfm}
+
+procedure TovF_EM005.ovB_CancelarClick(Sender: TObject);
+begin
+  oCDS_Emprestimo.Close;
+  ovE_idemp.setfocus;
+end;
+
+procedure TovF_EM005.ovB_ExcluirClick(Sender: TObject);
+begin
+  oCDS_Emprestimo.Delete;
+    if oCDS_Emprestimo.ChangeCount > 0 then
+    begin
+      if oCDS_Emprestimo.ApplyUpdates(0) <> 0 then
+      begin
+        showmessage('Não foi possível remover o registro!');
+      end
+      else
+      begin
+         showmessage('Registro removido com sucesso!');
+         oCDS_Emprestimo.Close;
+         ovE_idemp.setfocus;
+      end;
+
+    end;
+end;
+
+procedure TovF_EM005.ovB_GravarClick(Sender: TObject);
+begin
+ oCDS_Emprestimo.CheckBrowseMode;
+
+  if oCDS_Emprestimo.ChangeCount> 0 then
+    begin
+      if oCDS_Emprestimo.ApplyUpdates(0) <> 0 then
+        begin
+          showmessage('Dados não salvo corretamente!');
+        end
+    else
+    begin
+      showmessage('Dados salvos com sucesso!');
+      oCDS_Emprestimo.Close;
+      ovE_idemp.SetFocus;
+    end;
+end;
+end;
+
+procedure TovF_EM005.ovB_NovoIDClick(Sender: TObject);
+var
+  consulta: TFDQuery;
+  ultimoCodigo: integer;
+begin
+  consulta:= TFDQuery.Create(nil);
+  try
+    consulta.Connection := uDM_Conexao.oSQLConnection;
+    consulta.SQL.Text:= 'SELECT FIRST 1 IDEMP FROM EMPRESTIMO ORDER BY IDEMP DESC';
+    consulta.Open;
+    ultimoCodigo:= consulta.fieldByName('idemp').AsInteger;
+    consulta.Close;
+  finally
+    consulta.free;
+  end;
+    ultimoCodigo:= ultimoCodigo + 1;
+    ovE_idemp.Text := intToStr(ultimoCodigo);
+    ovE_idemp.setfocus;
+end;
+
+procedure TovF_EM005.ovB_SairClick(Sender: TObject);
+begin
+  ovF_EM005.CLose;
+end;
+
+procedure TovF_EM005.ovP_ChaveExit(Sender: TObject);
+var
+  CodigoEmprestimo : integer;
+begin
+  try
+    CodigoEmprestimo := StrToInt( ovE_idemp.Text ); //IntToStr
+  except
+    showmessage('codigo invalido');
+    ovE_idemp.SetFocus;
+    exit;
+  end;
+    oCDS_Emprestimo.Close;
+    oCDS_Emprestimo.Params.ParamByName('idemp').value := CodigoEmprestimo;
+    oCDS_Emprestimo.Open;
+
+    if oCDS_Emprestimo.IsEmpty then
+    begin
+      oCDS_Emprestimo.insert;
+      oCDS_Emprestimoidemp.Value := CodigoEmprestimo;
+    end
+    else
+    begin
+      oCDS_Emprestimo.Edit;
+    end;
+
+end;
+
+end.

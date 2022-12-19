@@ -1,0 +1,147 @@
+unit uPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls,
+  Vcl.Imaging.jpeg, Vcl.ExtCtrls;
+
+type
+  TovF_Principal = class(TForm)
+    MainMenu1: TMainMenu;
+    Cadastro1: TMenuItem;
+    UsuriodeEmpr1: TMenuItem;
+    Pesquisa1: TMenuItem;
+    CadastrarEmprestimos1: TMenuItem;
+    Label1: TLabel;
+    Label2: TLabel;
+    Devoluodeemprstimo1: TMenuItem;
+    FormasdeCadastro1: TMenuItem;
+    FormasdeCadastro2: TMenuItem;
+    Forma21: TMenuItem;
+    Forma31: TMenuItem;
+    Sobre1: TMenuItem;
+    Projeto1: TMenuItem;
+    Autor1: TMenuItem;
+    MaisProjetos1: TMenuItem;
+    Contato1: TMenuItem;
+    procedure Usurios1Click(Sender: TObject);
+    procedure Pesquisa1Click(Sender: TObject);
+    procedure CadastrarEmprestimos1Click(Sender: TObject);
+    procedure Devoluodeemprstimo1Click(Sender: TObject);
+    procedure FormasdeCadastro2Click(Sender: TObject);
+    procedure Forma21Click(Sender: TObject);
+    procedure Forma31Click(Sender: TObject);
+    procedure Projeto1Click(Sender: TObject);
+    procedure Autor1Click(Sender: TObject);
+    procedure MaisProjetos1Click(Sender: TObject);
+    procedure Contato1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ovF_Principal: TovF_Principal;
+
+implementation
+
+{$R *.dfm}
+
+uses uEM003, uEM003p, uEM005, uEM006, uEM001, uEM002;
+
+
+procedure TovF_Principal.Autor1Click(Sender: TObject);
+begin
+  ShowMessage('Olá, Meu nome é Adriel Matheus Graupp, tenho 20 anos, moro em Guarujá do Sul em SC, cursei o EMIEP (Ensino Medio Integrado a Educação Profissional Técnico em Informática), atualmente curso Ciência da Computação pela UNOESC de São Miguel do Oeste.');
+end;
+
+procedure TovF_Principal.CadastrarEmprestimos1Click(Sender: TObject);
+begin
+  ovF_EM005 := TovF_EM005.Create( application );
+     try
+       ovf_EM005.ShowModal;
+     finally
+        ovF_EM005.free;
+     end;
+end;
+
+procedure TovF_Principal.Contato1Click(Sender: TObject);
+begin
+ ShowMessage('E-mail: adrielgraupp0205@gmail.com'+#13+'Telefone/WhatsApp: (49)99113-6898'+#13+'Instagram: @adrielgraupp'+#13+'Facebook: Adriel Matheus Graupp'+#13+'YouTube: Adriel Matheus Graupp');
+
+end;
+
+procedure TovF_Principal.Devoluodeemprstimo1Click(Sender: TObject);
+begin
+     ovF_EM006 := TovF_EM006.Create( application );
+     try
+       ovf_EM006.ShowModal;
+     finally
+        ovF_EM006.free;
+     end;
+end;
+
+procedure TovF_Principal.Forma21Click(Sender: TObject);
+begin
+  ovF_EM002 := TovF_EM002.Create( application );
+     try
+       ovf_EM002.ShowModal;
+     finally
+        ovF_EM002.free;
+     end;
+end;
+
+procedure TovF_Principal.Forma31Click(Sender: TObject);
+begin
+  ovF_EM003 := TovF_EM003.Create( application );
+     try
+       ovf_EM003.ShowModal;
+     finally
+        ovF_EM003.free;
+     end;
+end;
+
+procedure TovF_Principal.FormasdeCadastro2Click(Sender: TObject);
+begin
+ovF_EM001 := TovF_EM001.Create( application );
+     try
+       ovf_EM001.ShowModal;
+     finally
+        ovF_EM001.free;
+     end;
+end;
+
+procedure TovF_Principal.MaisProjetos1Click(Sender: TObject);
+begin
+  ShowMessage('Para mais projetos de minha autoria você encontra aqui:'+#13+'GitHub: https://github.com/ADRIELmg0205'+#13+'YouTube: Adriel Matheus Graupp');
+end;
+
+procedure TovF_Principal.Pesquisa1Click(Sender: TObject);
+begin
+     ovF_EM003p := TovF_EM003p.Create( application );
+     try
+       ovf_EM003p.ShowModal;
+     finally
+        ovF_EM003p.free;
+     end;
+end;
+
+procedure TovF_Principal.Projeto1Click(Sender: TObject);
+begin
+  ShowMessage('Autor: Adriel Matheus Graupp '+#13+'Versão: 1.0'+#13+'Ano: 2022');
+end;
+
+procedure TovF_Principal.Usurios1Click(Sender: TObject);
+begin
+     ovF_EM003 := TovF_EM003.Create( application );
+     try
+       ovf_EM003.ShowModal;
+     finally
+        ovF_EM003.free;
+     end;
+end;
+
+end.

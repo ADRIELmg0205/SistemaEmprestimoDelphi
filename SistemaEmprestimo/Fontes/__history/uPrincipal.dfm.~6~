@@ -1,0 +1,32 @@
+object ovF_Principal: TovF_Principal
+  Left = 0
+  Top = 0
+  Caption = 'Sistema de controle de empr'#233'stimos'
+  ClientHeight = 201
+  ClientWidth = 447
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object MainMenu1: TMainMenu
+    Left = 240
+    Top = 104
+    object Cadastro1: TMenuItem
+      Caption = 'Cadastro'
+      object UsuriodeEmpr1: TMenuItem
+        Caption = 'Usu'#225'rio de empr'#233'stimo'
+        OnClick = Usurios1Click
+      end
+      object Pesquisa1: TMenuItem
+        Caption = 'Pesquisa'
+        OnClick = Pesquisa1Click
+      end
+    end
+  end
+end
