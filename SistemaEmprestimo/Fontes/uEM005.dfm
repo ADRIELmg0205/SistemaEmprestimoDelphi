@@ -357,6 +357,7 @@ object ovF_EM005: TovF_EM005
     object oCDS_EmprestimoDATEMP: TDateField
       FieldName = 'DATEMP'
       Origin = 'DATEMP'
+      DisplayFormat = 'dd/mm/yyyy'
     end
     object oCDS_EmprestimoIDUSU: TIntegerField
       FieldName = 'IDUSU'
@@ -370,6 +371,7 @@ object ovF_EM005: TovF_EM005
     object oCDS_EmprestimoDEVEMP: TDateField
       FieldName = 'DEVEMP'
       Origin = 'DEVEMP'
+      DisplayFormat = 'dd/mm/yyyy'
     end
   end
   object oDS_Emprestimo: TDataSource
@@ -519,10 +521,11 @@ object ovF_EM005: TovF_EM005
     end
   end
   object oQ_ItemEmprestimo: TFDQuery
-    Active = True
     Connection = uDM_Conexao.oSQLConnection
     SQL.Strings = (
-      'SELECT idite, codite, desite FROM ITEMEMPRESTIMO;')
+      'SELECT i.idite, i.codite, i.desite FROM ITEMEMPRESTIMO i'
+      'inner JOIN EMPRESTIMO e ON i.IDITE <> e.IDITE  '
+      'WHERE e.DEVEMP IS null')
     Left = 560
     Top = 120
     object oQ_ItemEmprestimoIDITE: TIntegerField
